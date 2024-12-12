@@ -8,7 +8,7 @@ before_install:
 
 install:
   - python -m pip install --upgrade pip
-  - pip install telebot cairosvg && chmod +x bgmi
+  - python -m pip install telebot cairosvg
 
 script:
   - python3 main.py
