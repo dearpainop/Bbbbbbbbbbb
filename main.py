@@ -11,7 +11,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Initialize the bot with the token from environment variable
-TOKEN = '7385947182:AAGmmnswbG2HZHHXdCMVjd29l9MlwIEAP9I'
+TOKEN = '7385947182:AAGGBOpuvWeGAP2oX_-oOHiOzDxcOYiXB6E'
 
 bot = telebot.TeleBot(TOKEN)
 
